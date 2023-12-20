@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, map} from 'rxjs';
 import {Todo} from '../models/todo';
 import {environment} from '../../environments/environment';
 
@@ -13,5 +13,9 @@ export class TodoService {
 
   list(): Observable<Todo[]> {
     return this.http.get<Todo[]>(`${environment.baseUrl}/api/todos`);
+  }
+
+  getTodoByID(id: number): Observable<Todo> {
+    return this.http.get<Todo>(`${environment.baseUrl}/api/todos/${id}`);
   }
 }

@@ -9,7 +9,7 @@
               [checked]="todo.isClosed"
               (change)="toggleTodo(todo)"
             ></mat-checkbox>
-            {{ todo.title }}
+            <a routerLink="/details/{{ todo.id }}">{{ todo.title }}</a>
           </h4>
         </mat-list-item>
       </mat-list>
